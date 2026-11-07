@@ -25,7 +25,7 @@ RUN if [ "${LIBC}" = "musl" ]; then \
     && pie install open-telemetry/ext-opentelemetry:${OPENTELEMETRY_VERSION} \
     && cp /usr/local/lib/php/extensions/no-debug-${THREAD}-*/opentelemetry.so .
 
-COPY --from=composer:2@sha256:4d71c3c2109c61d5415544264b59ad4087e4c5b7244481723664138fd36d5040 /usr/bin/composer /usr/bin/composer
+COPY --from=composer:2@sha256:8de2184c6de224f4689e8f80ed5f5edaf0030b6b8b7839a22a2bcb6722ac87d0 /usr/bin/composer /usr/bin/composer
 COPY composer.json .
 RUN composer install --ignore-platform-reqs
 RUN mv vendor/* . && rm -rf vendor composer.json composer.lock
